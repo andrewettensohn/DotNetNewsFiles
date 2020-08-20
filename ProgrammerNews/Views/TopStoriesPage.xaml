@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProgrammerNews.Views.TopStoriesPage"
+             x:Name="StoriesPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="TopStoriesListView"
+                ItemsSource="{Binding Articles}"
+                RefreshCommand="{Binding LoadStoriesCommand}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemSelected="OnItemSelected"
+                Scrolled="TopStoriesListView_Scrolled"
+                BackgroundColor="{StaticResource BackgroundColorPrimary}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Save Article"
+                                          CommandParameter="{Binding Id}"
+                                          Command="{Binding BindingContext.SaveArticleCommand, Source={x:Reference StoriesPage} }"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="16">
+                                <Label Text="{Binding Title}"
+                                       FontSize="16"
+                                       TextColor="{StaticResource TextPrimary}"/>
+                                <Label Text="{Binding Url}"
+                                       FontSize="12"
+                                       TextColor="{StaticResource TextPrimary}"
+                                       Opacity="0.6"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

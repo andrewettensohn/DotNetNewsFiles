@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProgrammerNews.Views.AboutPage"
+             Title="About">
+   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10" BackgroundColor="{StaticResource BackgroundColorPrimary}">
+                <Label FontSize="22">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="ProgrammerNews" FontAttributes="Bold" FontSize="22" TextColor="{StaticResource TextPrimary}" />
+                                <Span Text=" " />
+                                <Span Text="1.0" ForegroundColor="{StaticResource TextPrimary}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="App by Andrew Ettensohn, written in C# using Xamarin." TextColor="{StaticResource TextPrimary}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Released August of 2020." TextColor="{StaticResource TextPrimary}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button Margin="0,10,0,0" Text="Vist GitHub Repo"
+                        BackgroundColor="#007bff"
+                        TextColor="White" />
+                <Button Margin="0,10,0,0" Text="Delete All Saved Articles"
+                        Padding="10"
+                        BackgroundColor="DarkRed"
+                        TextColor="White"
+                        Clicked="OnDeleteButtonClicked"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+    
+</ContentPage>
