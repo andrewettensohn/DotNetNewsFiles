@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetNews.Data\DotNetNews.Data.csproj" />
+    <ProjectReference Include="..\DotNetNews.Models\DotNetNews.Models.csproj" />
+  </ItemGroup>
+
+</Project>
